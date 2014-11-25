@@ -35,7 +35,7 @@ Get the fresh StreamHub-Android-SDK from Github
 
 2.	Select the **'+'** button on the top left corner of window
 
-3.	Select "Import Existing Module"
+3.	Select "Import Existing Project"  (In new version of Android studio you can find "Import Existing Project" option under "More Modules")
 
 4.  Browse and select StreamHub-Android-SDK
  * Android Studio may request to convert the SDK to gradle version; if this occurs, select next and finish
