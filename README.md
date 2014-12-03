@@ -59,7 +59,7 @@ Note: You can customize configurations from within   [Config.java](https://githu
 
 * Reviews Demonstrative Example: https://github.com/Livefyre/StreamHub-Android-Reviews-App
 
-* Comments Demonstrative Example: https://github.com/Livefyre/StreamHub-Android-SDK/tree/master/examples/commentstream
+* Comments Demonstrative Example: In progress
 
 # SDK Client Classes
 
@@ -75,6 +75,6 @@ The StreamHub Android SDK exposes several Client classes that can be used to req
 
 # License
 
-Copyright 2013 Livefyre Inc.
+Copyright 2014 Livefyre Inc.
 
 Licensed under the MIT License
