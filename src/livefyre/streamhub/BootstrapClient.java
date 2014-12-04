@@ -8,6 +8,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.util.*;
 
 /**
  * @author zjj
@@ -99,7 +100,7 @@ public class BootstrapClient {
         // Build the URL
         Builder uriBuilder = new Uri.Builder()
                 .scheme(Config.scheme)
-                .authority(Config.bootstrapDomain + "." + Config.networkId)
+                .authority(Config.bootstrapDomain + "." + Config.getHostname(networkId))
                 .appendPath("bs3")
                 .appendPath(networkId)
                 .appendPath(siteId)
@@ -109,8 +110,8 @@ public class BootstrapClient {
             uriBuilder.appendPath("init");
         }
         else {
-            if(opts["pageNumber"] instanceof Integer) {
-                String page = opts["pageNumber"] + ".json";
+            if(opts[0].get("pageNumber") instanceof Integer) {
+                String page = opts[0].get("pageNumber").toString() + ".json";
                 uriBuilder.appendPath(page);
             }
             else {
