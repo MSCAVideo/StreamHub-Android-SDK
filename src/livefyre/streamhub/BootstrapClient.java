@@ -54,9 +54,8 @@ public class BootstrapClient {
             throws UnsupportedEncodingException
     {
         final String bootstrapEndpoint = generateBootstrapEndpoint(networkId, siteId, articleId, opts);
-        Log.d("SDK","Before call "+bootstrapEndpoint);
+        Log.d("SDK", "Requesting " + bootstrapEndpoint);
         HttpClient.client.get(bootstrapEndpoint, handler);
-        Log.d("SDK","After call");
     }
 
     /**
