@@ -61,37 +61,37 @@ public class WriteClient {
 	 */
 	public static void postContent(String networkId, String collectionId,
 			String parentId, String userToken,
-			HashMap<String, Object> perameters, JsonHttpResponseHandler handler)
+			HashMap<String, Object> parameters, JsonHttpResponseHandler handler)
 			throws MalformedURLException {
 		// add body parameters
 		RequestParams bodyParams = new RequestParams();
 
-		// if (perameters.containsKey(LFSConstants.LFSPostType)) {
+		// if (parameters.containsKey(LFSConstants.LFSPostType)) {
 
-		// if (perameters.get(LFSConstants.LFSPostType) ==
+		// if (parameters.get(LFSConstants.LFSPostType) ==
 		// LFSConstants.LFSPostTypeRating) {
 
 		bodyParams.put(LFSConstants.LFSPostBodyKey,
-				(String) perameters.get(LFSConstants.LFSPostBodyKey));
+				(String) parameters.get(LFSConstants.LFSPostBodyKey));
 
 		// //Get Title
-		if (perameters.containsKey("attachments")) {
+		if (parameters.containsKey("attachments")) {
 			bodyParams.put("attachments",
-					(String) perameters.get("attachments"));
+					(String) parameters.get("attachments"));
 		}
 
-		if (perameters.containsKey(LFSConstants.LFSPostTitleKey)) {
+		if (parameters.containsKey(LFSConstants.LFSPostTitleKey)) {
 			bodyParams.put(LFSConstants.LFSPostTitleKey,
-					(String) perameters.get(LFSConstants.LFSPostTitleKey));
+					(String) parameters.get(LFSConstants.LFSPostTitleKey));
 		}
 
 		// // Get Rating
 
-		if (perameters.containsKey(LFSConstants.LFSPostTypeReview)) {
+		if (parameters.containsKey(LFSConstants.LFSPostTypeReview)) {
 			JSONObject rating = new JSONObject();
 			try {
 				rating.put("default",
-						perameters.get(LFSConstants.LFSPostTypeReview));
+						parameters.get(LFSConstants.LFSPostTypeReview));
 				// String rateJson=JSONObject.quote(rating.toString());
 				bodyParams.put("rating", rating.toString());
 			} catch (JSONException e) {
@@ -105,9 +105,9 @@ public class WriteClient {
 			bodyParams.put("parent_id", parentId);
 		}
 
-		if (perameters.containsKey(LFSConstants.LFSPostUserTokenKey))
+		if (parameters.containsKey(LFSConstants.LFSPostUserTokenKey))
 			bodyParams.put("lftoken",
-					(String) perameters.get(LFSConstants.LFSPostUserTokenKey));
+					(String) parameters.get(LFSConstants.LFSPostUserTokenKey));
 		else {
 
 			android.os.Process.killProcess(android.os.Process.myPid());
@@ -115,7 +115,7 @@ public class WriteClient {
 
 		Log.d("", "" + bodyParams);
 		HttpClient.client.post(
-				generateWriteURL(networkId, collectionId, userToken, perameters
+				generateWriteURL(networkId, collectionId, userToken, parameters
 						.get(LFSConstants.LFSPostType).toString()), bodyParams,
 				handler);
 
@@ -127,12 +127,12 @@ public class WriteClient {
 	 * @param contentId
 	 * @param token
 	 * @param action
-	 * @param perameters
+	 * @param parameters
 	 * @param handler
 	 */
 
 	public static void flagContent(String collectionId, String contentId,
-			String token, LFSFlag action, RequestParams perameters,
+			String token, LFSFlag action, RequestParams parameters,
 			JsonHttpResponseHandler handler) {
 		// String url =
 		// "http://quill.client-solutions.fyre.co/api/v3.0/message/"
@@ -152,8 +152,8 @@ public class WriteClient {
 				.appendQueryParameter("collection_id", collectionId));
 
 		Log.d("Action SDK call", "" + url);
-		Log.d("Action SDK call", "" + perameters);
-		HttpClient.client.post(url, perameters, handler);
+		Log.d("Action SDK call", "" + parameters);
+		HttpClient.client.post(url, parameters, handler);
 	}
 
 	/**
@@ -187,14 +187,14 @@ public class WriteClient {
 	 * @param contentId
 	 * @param collectionId
 	 * @param userToken
-	 * @param perameters
+	 * @param parameters
 	 * @param handler
 	 * @throws MalformedURLException
 	 */
 
 	public static void featureMessage(String action, String contentId,
 			String collectionId, String userToken,
-			HashMap<String, Object> perameters, JsonHttpResponseHandler handler)
+			HashMap<String, Object> parameters, JsonHttpResponseHandler handler)
 			throws MalformedURLException {
 		RequestParams bodyParams = new RequestParams();
 		bodyParams.put("lftoken", userToken);
@@ -227,12 +227,12 @@ public class WriteClient {
 	 * @param contentId
 	 * @param token
 	 * @param action
-	 * @param perameters
+	 * @param parameters
 	 * @param handler
 	 */
 
 	public static void postAction(String collectionId, String contentId,
-			String token, LFSActions action, RequestParams perameters,
+			String token, LFSActions action, RequestParams parameters,
 			JsonHttpResponseHandler handler) {
 		// Build the URL
 
@@ -253,8 +253,8 @@ public class WriteClient {
 		// .appendQueryParameter("collection_id", collectionId));
 
 		Log.d("Action SDK call", "" + url);
-		Log.d("Action SDK call", "" + perameters);
-		HttpClient.client.post(url, perameters, handler);
+		Log.d("Action SDK call", "" + parameters);
+		HttpClient.client.post(url, parameters, handler);
 	}
 
 	/**
@@ -263,13 +263,13 @@ public class WriteClient {
 	 *            Author of Post
 	 * @param token
 	 *            Livefyre Token
-	 * @param perameters
+	 * @param parameters
 	 *            Perameters includes network,
 	 * @param handler
 	 */
 
 	public static void flagAuthor(String authorId, String token,
-			RequestParams perameters, JsonHttpResponseHandler handler) {
+			RequestParams parameters, JsonHttpResponseHandler handler) {
 		// Build the URL
 
 //		String url = "http://quill.client-solutions.fyre.co/api/v3.0/author/"
@@ -290,8 +290,8 @@ public class WriteClient {
 		
 		
 		Log.d("Action SDK call", "" + url);
-		Log.d("Action SDK call", "" + perameters);
-		HttpClient.client.post(url, perameters, handler);
+		Log.d("Action SDK call", "" + parameters);
+		HttpClient.client.post(url, parameters, handler);
 	}
 
 }
