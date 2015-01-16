@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 
+import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
