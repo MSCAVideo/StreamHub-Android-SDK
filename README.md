@@ -1,4 +1,3 @@
-
 StreamHub-Android-SDK
 =====================
 
